@@ -13,52 +13,27 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-function formSubmit(e) {
-    // console.log("test");
+function login(e) {
     e.preventDefault();
     const email = document.getElementById("email").value;
-    const password1 = document.getElementById("password1").value;
-    const password2 = document.getElementById("password2").value;
-    const alertbox = document.getElementById("alertbox");
-    if (password1 !== password2) {
-        alertbox.classList.add("alert-warning");
-        alertbox.innerHTML = "Both passwords don't match";
-        alertbox.style.display = "block";
-        setTimeout(() => {
-            alertbox.classList.remove("alert-warning");
-            alertbox.innerHTML = "";
-            alertbox.style.display = "none";
-        }, 3000);
-        return;
-    }
+    const password = document.getElementById("password").value;
 
     firebase
         .auth()
-        .createUserWithEmailAndPassword(email, password1)
+        .signInWithEmailAndPassword(email, password)
         .then(() => {
-            firebase
-                .auth()
-                .currentUser.sendEmailVerification()
-                .then(() => {
-                    // Email verification sent
-                })
-                .catch(e => {
-                    // Email verification not sent
-                });
             alertbox.classList.add("alert-success");
-            alertbox.innerHTML =
-                "Successfully registered... Check email for verification link";
+            alertbox.innerHTML = "Login successful.. Redirecting to home page";
             alertbox.style.display = "block";
             setTimeout(() => {
                 alertbox.classList.remove("alert-success");
                 alertbox.innerHTML = "";
                 alertbox.style.display = "none";
-                // window.location.href = "/login.html";
+                window.location.href = "/";
             }, 3000);
         })
         .catch(function(error) {
             // Handle Errors here.
-            // var errorCode = error.code;
             var errorMessage = error.message;
             alertbox.classList.add("alert-danger");
             alertbox.innerHTML = errorMessage;
@@ -71,4 +46,4 @@ function formSubmit(e) {
         });
 }
 
-document.getElementById("signupform").addEventListener("submit", formSubmit);
+document.getElementById("loginform").addEventListener("submit", login);
