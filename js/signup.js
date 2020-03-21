@@ -36,13 +36,19 @@ function formSubmit(e) {
         .auth()
         .createUserWithEmailAndPassword(email, password1)
         .then(() => {
+            firebase.auth().currentUser.sendEmailVerification().then(() => {
+                // Email verification sent
+            }).catch(e => {
+                // Email verification not sent
+            });
             alertbox.classList.add("alert-success");
-            alertbox.innerHTML = "Successfully registered";
+            alertbox.innerHTML = "Successfully registered... Check email for verification link";
             alertbox.style.display = "block";
             setTimeout(() => {
                 alertbox.classList.remove("alert-success");
                 alertbox.innerHTML = "";
                 alertbox.style.display = "none";
+                // window.location.href = "/login.html";
             }, 3000);
         })
         .catch(function(error) {
@@ -50,7 +56,7 @@ function formSubmit(e) {
             // var errorCode = error.code;
             var errorMessage = error.message;
             alertbox.classList.add("alert-danger");
-            alertbox.innerHTML = errorMessage
+            alertbox.innerHTML = errorMessage;
             alertbox.style.display = "block";
             setTimeout(() => {
                 alertbox.classList.remove("alert-danger");
