@@ -177,7 +177,7 @@ ul li:hover {
     padding-left: 10%;
     background: #1a5276;
     height: 850px;
-    width: 80%;
+    width: 90%;
     padding-top: 150px;
     font-size: 30px;
     color: white;
@@ -190,4 +190,39 @@ ul li:hover {
     background-color: #f7f9f9;
     float: left;
     border-radius: 30px;
+}
+#l
+{
+    float: left;
+    padding: 20px;
+    margin-left:20px; 
+    background: white;
+    border-radius: 20px;
+}
+#log-out
+{ 
+    margin-top: 200px;
+ padding: 50px;
+}
+#btn
+{
+border: 1px solid white;
+background: white;
+padding: 10px 20px;
+font-size:30px;
+cursor: pointer;
+margin:10px;
+color: #140230;
+transition:0.8s;
+border-radius: 30px;
+font-family: bebas;
+width: 150px;
+box-shadow: 1px 1px 4px black;
+transition: background 0.2s, width 2s;
+}
+#btn:hover{
+    color: #fff;
+    background: #140230;
+    border: 1px solid #140230;
+    width:200px;
 }
