@@ -22,7 +22,7 @@ function login(e) {
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(() => {
-            sessionStorage.setItem("email", email);
+            // sessionStorage.setItem("email", email);
             alertbox.classList.add("alert-success");
             alertbox.innerHTML = "Login successful.. Redirecting to home page";
             alertbox.style.display = "block";

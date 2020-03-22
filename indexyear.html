@@ -62,5 +62,36 @@
                 >
             </div>
         </div>
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+        
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+        
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+        <script>
+
+            // Your web app's Firebase configuration
+                var firebaseConfig = {
+                    apiKey: "AIzaSyCw--Xar9_tNGTFzUA2LM-ehom5H2gj4lE",
+                    authDomain: "learnbird-73f29.firebaseapp.com",
+                    databaseURL: "https://learnbird-73f29.firebaseio.com",
+                    projectId: "learnbird-73f29",
+                    storageBucket: "learnbird-73f29.appspot.com",
+                    messagingSenderId: "741074660527",
+                    appId: "1:741074660527:web:3a349b2dff1c90e035785a",
+                    measurementId: "G-L3CBQLMMBB"
+                };
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+                firebase.analytics();
+
+        </script>
+
+
+        <script src="js/logout.js"></script>
     </body>
 </html>

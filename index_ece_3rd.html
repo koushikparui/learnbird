@@ -3,6 +3,17 @@
     <head>
         <title>Learn Bird</title>
         <meta charset="utf-8" />
+       <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+        
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+        
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+        <script src="js/checkLoggedIn.js"></script>
         <link href="./css/sbstyle.css" rel="stylesheet" />
     </head>
 
@@ -69,6 +80,6 @@
                 >
             </div>
         </div>
-        <script src="js/checkLoggedIn.js"></script>
+        <script src="js/logout.js"></script>
     </body>
 </html>
