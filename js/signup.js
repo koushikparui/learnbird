@@ -13,13 +13,18 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+// Signup function
 function formSubmit(e) {
     // console.log("test");
     e.preventDefault();
+
+    // Getting values from inputs
     const email = document.getElementById("email").value;
     const password1 = document.getElementById("password1").value;
     const password2 = document.getElementById("password2").value;
     const alertbox = document.getElementById("alertbox");
+
+    // Checking if both passwords are same or not
     if (password1 !== password2) {
         alertbox.classList.add("alert-warning");
         alertbox.innerHTML = "Both passwords don't match";
@@ -32,10 +37,12 @@ function formSubmit(e) {
         return;
     }
 
+    // Creating user account
     firebase
         .auth()
         .createUserWithEmailAndPassword(email, password1)
         .then(() => {
+            // Sending email verification to user
             firebase
                 .auth()
                 .currentUser.sendEmailVerification()
@@ -57,7 +64,7 @@ function formSubmit(e) {
             }, 3000);
         })
         .catch(function(error) {
-            // Handle Errors here.
+            // Error creating account
             // var errorCode = error.code;
             var errorMessage = error.message;
             alertbox.classList.add("alert-danger");
@@ -71,4 +78,5 @@ function formSubmit(e) {
         });
 }
 
+// Event listener
 document.getElementById("signupform").addEventListener("submit", formSubmit);

@@ -1,7 +1,13 @@
+// FIREBASE CONFIG COMING FROM CHECKEDLOGGEDIN.JS
+
+// Setting database
 var database = firebase.database();
 
+// Update function
 function update(e) {
     e.preventDefault();
+
+    // Getting values from inputs
     const name = document.getElementById("name").value;
     const phone = document.getElementById("phone").value;
     const college = document.getElementById("college").value;
@@ -9,11 +15,14 @@ function update(e) {
     const regyear = document.getElementById("regyear").value;
     const dob = document.getElementById("dob").value;
 
-    console.log(name, phone, college, department, regyear, dob);
+    // console.log(name, phone, college, department, regyear, dob);
+
+    // Getting current user
     var user = firebase.auth().currentUser;
 
-    console.log(user.email);
+    // console.log(user.email);
 
+    // Writing to database
     firebase
         .database()
         .ref("/users/" + user.uid)
@@ -27,6 +36,7 @@ function update(e) {
             dob: dob
         })
         .then(() => {
+            // Written to db successfully
             alertbox.classList.add("alert-success");
             alertbox.innerHTML = "Profile updated successfully";
             alertbox.style.display = "block";
@@ -37,6 +47,7 @@ function update(e) {
             }, 3000);
         })
         .catch(err => {
+            // Error writing to db
             console.log(err);
             alertbox.classList.add("alert-danger");
             alertbox.innerHTML = "Couldn't update profile";
@@ -49,4 +60,5 @@ function update(e) {
         });
 }
 
+// Event listener
 document.getElementById("updateform").addEventListener("submit", update);

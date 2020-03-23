@@ -13,22 +13,28 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+// Login function
 function login(e) {
     e.preventDefault();
+
+    // Dom elements
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
+    // Signin functuon
     firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(() => {
             // sessionStorage.setItem("email", email);
+
             var userId = firebase.auth().currentUser.uid;
             alertbox.classList.add("alert-success");
             alertbox.innerHTML = "Login successful..";
             alertbox.style.display = "block";
             var snap;
 
+            // Checking if user has already updated profile. If no redirect to profile page
             firebase
                 .database()
                 .ref("/users/" + userId)
@@ -42,6 +48,7 @@ function login(e) {
                 alertbox.innerHTML = "";
                 alertbox.style.display = "none";
 
+                // Redirecting
                 if (snap === null) {
                     window.location.href = "/profile.html";
                 } else {
@@ -63,4 +70,5 @@ function login(e) {
         });
 }
 
+// Event listener
 document.getElementById("loginform").addEventListener("submit", login);

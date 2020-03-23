@@ -1,3 +1,5 @@
+// Checking if user is logged in or not
+
 var firebaseConfig = {
     apiKey: "AIzaSyCw--Xar9_tNGTFzUA2LM-ehom5H2gj4lE",
     authDomain: "learnbird-73f29.firebaseapp.com",
@@ -16,10 +18,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
         console.log(user);
-        // logbtn.innerHTML = "Logout"
     } else {
         // No user is signed in.
-        // console.log("no");
         window.location.href = "/login.html";
     }
 });

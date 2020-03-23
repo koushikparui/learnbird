@@ -1,4 +1,7 @@
-firebase.auth().onAuthStateChanged(function(user) {
+// FIREBASE CONFIG COMING FROM CHECKEDLOGGEDIN.JS
+
+// Check if user is logged in to display logout btn
+firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         logbtn.innerHTML = "Logout";
     } else {
@@ -6,6 +9,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 });
 
+// Logout function
 function logout(e) {
     firebase
         .auth()
@@ -18,6 +22,8 @@ function logout(e) {
         });
 }
 
+// Dom element
 const logbtn = document.getElementById("btn");
 
+// Event listener
 logbtn.addEventListener("click", logout);
