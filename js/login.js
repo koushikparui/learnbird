@@ -23,14 +23,30 @@ function login(e) {
         .signInWithEmailAndPassword(email, password)
         .then(() => {
             // sessionStorage.setItem("email", email);
+            var userId = firebase.auth().currentUser.uid;
             alertbox.classList.add("alert-success");
-            alertbox.innerHTML = "Login successful.. Redirecting to home page";
+            alertbox.innerHTML = "Login successful..";
             alertbox.style.display = "block";
+            var snap;
+
+            firebase
+                .database()
+                .ref("/users/" + userId)
+                .once("value")
+                .then(snapshot => {
+                    snap = snapshot.val();
+                })
+                .catch(err => console.log(err));
             setTimeout(() => {
                 alertbox.classList.remove("alert-success");
                 alertbox.innerHTML = "";
                 alertbox.style.display = "none";
-                window.location.href = "/";
+
+                if (snap === null) {
+                    window.location.href = "/profile.html";
+                } else {
+                    window.location.href = "/";
+                }
             }, 3000);
         })
         .catch(function(error) {
