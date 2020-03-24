@@ -33,6 +33,11 @@
         <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+        <script>
+            $(document).ready(function(){
+              $('[data-toggle="popover"]').popover();
+            });
+        </script>
 
         <script src="js/checkLoggedIn.js"></script>
         <style>
@@ -181,9 +186,13 @@
                                     type="checkbox"
                                     required
                                 />
-                                Terms And Condition
-                            </label>
+                                Terms And Conditions</label>
+                            
+                        <a href="javascript://" data-html="true" data-toggle="popover" title="Terms And Conditions"  data-content="We will send you updates related to our trainings/workshops/products in your mail. We may share your information with institutions for course/learning/job/internship/training oppurtunities.
+                                   <br>Regards,<br>
+                        <b>Learn Bird</b> <br> Created by #You Are Awesome."  data-trigger="focus">Click Here</a>    
                         </div>
+                            
                         <button type="submit" class="btn btn-primary btn-block">
                             Submit
                         </button>

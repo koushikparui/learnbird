@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login Form</title>
+        <title>Recover</title>
         <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -46,12 +46,7 @@
             .bg2 {
                 background: white;
             }
-            .bg3 {
-                background: #030a5c;
-            }
-            .bg-yellow {
-                background:white;
-            }
+
             .logo {
                 height: auto;
                 width: 300px;
@@ -66,12 +61,17 @@
 
             .footer {
                 width: 100%;
-                height: 100px;
+                height: 250px;
                 background: skyblue;
                 color: #696969;
-                padding-top: 40px;
+                padding-top: 200px;
                 text-align: center;
                 font-weight: bold;
+            }
+
+            .top {
+                padding-top: 20px;
+                padding-bottom: 30px;
             }
         </style>
     </head>
@@ -89,8 +89,12 @@
                 />
             </div>
             <div class="row justify-content-center ">
-                <div class="col-12 col-sm-6 col-md-3 ">
-                    <form id="loginform" class="form-container">
+                <div class="col-12 col-sm-6 col-md-4 ">
+                    <form id="recoverform" class="form-container">
+                        <h1 class="top">Your Email</h1>
+                        <div class="sep">
+                            <hr />
+                        </div>
                         <div
                             id="alertbox"
                             style="display: none;"
@@ -107,42 +111,15 @@
                                 required
                             />
                         </div>
-                        <div class="form-group ">
-                            <label for="pwd">Password:</label>
-                            <input
-                                type="password"
-                                class="form-control"
-                                placeholder="Enter password"
-                                id="password"
-                                required
-                            />
-                        </div>
-                        <div class="form-group form-check">
-                            <label class="form-check-label">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                />
-                                Remember me
-                            </label>
-                            <a href="recover.html" ><br>Forgot Password Click here</a>
-                        </div>
                         
                         <button type="submit" class="btn btn-primary btn-block">
                             Submit
                         </button>
-                        
                     </form>
                 </div>
             </div>
         </div>
-        <div class="container-fluid bg-yellow p-4" >
-            <div class="d-flex flex-column  text-center  ">    
-                <h1 style="padding:50px">Login problem? Sign up first<br></h1>
-                <a href="signup.html" class="btn btn-dark btn-lg ml-auto mr-auto bg3  col-sm-4"  role="button" >Sign up</a>
-            </div>
-        </div>    
-        <div class="jumbotron-fluid" style="float:buttom;padding-top:170px">
+        <div class="jumbotron-fluid" style="float:buttom;padding-top:475px">
             <div class="footer">CREATED BY #You Are Awesome</div>
         </div>
 
@@ -157,6 +134,6 @@
         <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
 
-        <script src="js/login.js"></script>
+        <script src="js/"></script>
     </body>
 </html>
