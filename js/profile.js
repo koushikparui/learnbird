@@ -37,26 +37,14 @@ function update(e) {
         })
         .then(() => {
             // Written to db successfully
-            alertbox.classList.add("alert-success");
-            alertbox.innerHTML = "Profile updated successfully";
-            alertbox.style.display = "block";
-            setTimeout(() => {
-                alertbox.classList.remove("alert-success");
-                alertbox.innerHTML = "";
-                alertbox.style.display = "none";
-            }, 3000);
+            alert("Profile updated successfully");
+            // Redirecting to home pahe
+            window.location.href = "/";
         })
         .catch(err => {
             // Error writing to db
             console.log(err);
-            alertbox.classList.add("alert-danger");
-            alertbox.innerHTML = "Couldn't update profile";
-            alertbox.style.display = "block";
-            setTimeout(() => {
-                alertbox.classList.remove("alert-danger");
-                alertbox.innerHTML = "";
-                alertbox.style.display = "none";
-            }, 3000);
+            alert("Couldn't update profile");
         });
 }
 
