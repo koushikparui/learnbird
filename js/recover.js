@@ -33,12 +33,12 @@ function recover(e) {
             alertbox.classList.add("alert-success");
             alertbox.innerHTML = "Check email for password reset link...";
             alertbox.style.display = "block";
-            setTimeout(() => {
-                alertbox.classList.remove("alert-success");
-                alertbox.innerHTML = "";
-                alertbox.style.display = "none";
-                window.location.href = "/login.html";
-            }, 3000);
+            // setTimeout(() => {
+            //     alertbox.classList.remove("alert-success");
+            //     alertbox.innerHTML = "";
+            //     alertbox.style.display = "none";
+            //     window.location.href = "/login.html";
+            // }, 3000);
         })
         .catch(function(error) {
             // error happened on sending reset email
