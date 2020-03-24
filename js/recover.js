@@ -37,7 +37,7 @@ function recover(e) {
                 alertbox.classList.remove("alert-success");
                 alertbox.innerHTML = "";
                 alertbox.style.display = "none";
-                // window.location.href = "/login.html";
+                window.location.href = "/login.html";
             }, 3000);
         })
         .catch(function(error) {

@@ -54,7 +54,7 @@ function login(e) {
                 } else {
                     window.location.href = "/";
                 }
-            }, 3000);
+            }, 1000);
         })
         .catch(function(error) {
             // Handle Errors here.
