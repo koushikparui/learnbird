@@ -41,20 +41,22 @@ function login(e) {
                 .once("value")
                 .then(snapshot => {
                     snap = snapshot.val();
+                    console.log(snap);
+                    setTimeout(() => {
+                        alertbox.classList.remove("alert-success");
+                        alertbox.innerHTML = "";
+                        alertbox.style.display = "none";
+                        console.log(snap);
+
+                        // Redirecting
+                        if (snap === undefined || snap === null) {
+                            window.location.href = "/profile.html";
+                        } else {
+                            window.location.href = "/";
+                        }
+                    }, 500);
                 })
                 .catch(err => console.log(err));
-            setTimeout(() => {
-                alertbox.classList.remove("alert-success");
-                alertbox.innerHTML = "";
-                alertbox.style.display = "none";
-
-                // Redirecting
-                if (snap === null) {
-                    window.location.href = "/profile.html";
-                } else {
-                    window.location.href = "/";
-                }
-            }, 500);
         })
         .catch(function(error) {
             // Handle Errors here.
